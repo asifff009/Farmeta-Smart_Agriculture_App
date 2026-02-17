@@ -1,88 +1,65 @@
 package com.asif.farmeta;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.Toast;
-
-import androidx.annotation.Nullable;
+import android.text.*;
+import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.android.volley.Request;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
+import androidx.recyclerview.widget.*;
+import java.util.*;
 
 public class FarmerDashboardActivity extends AppCompatActivity {
 
-    private RecyclerView rvMyCrops;
-    private Button btnAddCrop;
-    private List<CropModel> cropList;
-    private CropAdapter cropAdapter;
-
-    private final String FARMER_ID = "1"; // TODO: replace with login session
-    private final String GET_MY_CROPS_URL = "http://10.0.2.2/farmeta_api/get_my_crops.php";
+    CropAdapter adapter;
+    String selectedCategory = "All";
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_farmer_dashboard);
 
-        rvMyCrops = findViewById(R.id.rvMyCrops);
-        btnAddCrop = findViewById(R.id.btnAddCrop);
+        RecyclerView rv = findViewById(R.id.rvCrops);
+        EditText etSearch = findViewById(R.id.etSearch);
 
-        cropList = new ArrayList<>();
-        cropAdapter = new CropAdapter(this, cropList);
-        rvMyCrops.setLayoutManager(new LinearLayoutManager(this));
-        rvMyCrops.setAdapter(cropAdapter);
+        List<CropModel> list = new ArrayList<>();
 
-        btnAddCrop.setOnClickListener(v -> startActivity(new Intent(this, AddCropActivity.class)));
+        list.add(new CropModel("Rice","Rice","Dhaka","John","150 Tk/kg","100 kg"));
+        list.add(new CropModel("Tomato","Tomato","Khulna","Salam","80 Tk/kg","200 kg"));
+        list.add(new CropModel("Potato","Potato","Rajshahi","Karim","60 Tk/kg","150 kg"));
+        list.add(new CropModel("Onion","Onion","Sylhet","Akash","70 Tk/kg","12 kg"));
+        list.add(new CropModel("Watermelon","Watermelon","Jamalpur","Kamal","70 Tk/piece","52 pieces"));
 
-        fetchMyCrops();
-    }
 
-    private void fetchMyCrops() {
-        StringRequest request = new StringRequest(Request.Method.POST, GET_MY_CROPS_URL,
-                response -> {
-                    try {
-                        cropList.clear();
-                        JSONArray arr = new JSONArray(response);
-                        for (int i = 0; i < arr.length(); i++) {
-                            JSONObject obj = arr.getJSONObject(i);
+        adapter = new CropAdapter(this, list);
 
-                            String cropId = obj.getString("fc_id");
-                            String cropName = obj.getString("crop_name");
-                            String status = obj.getString("status");
-                            String expectedYield = obj.getString("expected_yield");
-                            String startDate = obj.getString("start_date");
+        rv.setLayoutManager(new LinearLayoutManager(this));
+        rv.setAdapter(adapter);
 
-                            CropModel crop = new CropModel(cropId, cropName, status, expectedYield, startDate);
-                            cropList.add(crop);
-                        }
-                        cropAdapter.notifyDataSetChanged();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        Toast.makeText(this, "Parsing error", Toast.LENGTH_SHORT).show();
-                    }
-                },
-                error -> Toast.makeText(this, "Error fetching crops", Toast.LENGTH_SHORT).show()
-        ) {
-            @Override
-            protected java.util.Map<String, String> getParams() {
-                java.util.Map<String, String> map = new java.util.HashMap<>();
-                map.put("farmer_id", FARMER_ID);
-                return map;
+        findViewById(R.id.btnAll).setOnClickListener(v -> {
+            selectedCategory = "All";
+            adapter.filter(etSearch.getText().toString(), selectedCategory);
+        });
+
+        findViewById(R.id.btnRice).setOnClickListener(v -> {
+            selectedCategory = "Rice";
+            adapter.filter(etSearch.getText().toString(), selectedCategory);
+        });
+
+        findViewById(R.id.btnTomato).setOnClickListener(v -> {
+            selectedCategory = "Tomato";
+            adapter.filter(etSearch.getText().toString(), selectedCategory);
+        });
+
+        findViewById(R.id.btnPotato).setOnClickListener(v -> {
+            selectedCategory = "Potato";
+            adapter.filter(etSearch.getText().toString(), selectedCategory);
+        });
+
+        etSearch.addTextChangedListener(new TextWatcher() {
+            public void afterTextChanged(Editable s) {
+                adapter.filter(s.toString(), selectedCategory);
             }
-        };
-
-        Volley.newRequestQueue(this).add(request);
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+        });
     }
 }

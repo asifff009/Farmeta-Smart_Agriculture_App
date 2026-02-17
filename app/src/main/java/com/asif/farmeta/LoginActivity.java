@@ -2,24 +2,30 @@ package com.asif.farmeta;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.Request;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputEditText;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
-    EditText etEmail, etPassword;
-    Button btnLogin, btnSignup;
+    TextInputEditText etEmail, etPassword;
+    MaterialButton btnLogin;
+    TextView btnSignup;
 
-    String LOGIN_URL = "http://172.23.199.100/farmeta_api/login.php";
+    String LOGIN_URL = "http://192.168.1.102/farmeta_api/login.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -31,9 +37,12 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         btnSignup = findViewById(R.id.btnSignup);
 
-        btnSignup.setOnClickListener(v -> startActivity(new Intent(this, SignupActivity.class)));
+        btnSignup.setOnClickListener(v ->
+                startActivity(new Intent(this, SignupActivity.class))
+        );
 
         btnLogin.setOnClickListener(v -> {
+
             String email = etEmail.getText().toString().trim();
             String password = etPassword.getText().toString().trim();
 
@@ -47,27 +56,35 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void loginUser(String email, String password){
+
         StringRequest request = new StringRequest(Request.Method.POST, LOGIN_URL,
                 response -> {
                     try{
                         JSONObject obj = new JSONObject(response);
+
                         if(obj.getString("status").equals("success")){
+
                             String role = obj.getString("role");
+
                             if(role.equals("farmer")){
                                 startActivity(new Intent(this, FarmerDashboardActivity.class));
-                            } else if(role.equals("buyer")){
+                            }
+                            else if(role.equals("buyer")){
                                 startActivity(new Intent(this, BuyerDashboardActivity.class));
                             }
+
                             finish();
+
                         } else {
                             Toast.makeText(this,"Invalid credentials",Toast.LENGTH_SHORT).show();
                         }
+
                     } catch (JSONException e){
-                        e.printStackTrace();
                         Toast.makeText(this,"Parsing error",Toast.LENGTH_SHORT).show();
                     }
                 },
-                error -> Toast.makeText(this,"Network error",Toast.LENGTH_SHORT).show()
+                error ->
+                        Toast.makeText(this,"Network error",Toast.LENGTH_SHORT).show()
         ){
             @Override
             protected Map<String,String> getParams(){

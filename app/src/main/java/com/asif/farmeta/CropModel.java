@@ -1,39 +1,23 @@
 package com.asif.farmeta;
 
 public class CropModel {
-    private String cropId;
-    private String cropName;
-    private String status;
-    private String expectedYield;
-    private String startDate;
-    private String farmerId;
-    private String farmerName;
 
-    // Farmer mode constructor
-    public CropModel(String cropId, String cropName, String status, String expectedYield, String startDate) {
-        this.cropId = cropId;
-        this.cropName = cropName;
-        this.status = status;
-        this.expectedYield = expectedYield;
-        this.startDate = startDate;
+    String name, category, location, farmer, price, quantity;
+
+    public CropModel(String name, String category, String location,
+                     String farmer, String price, String quantity) {
+        this.name = name;
+        this.category = category;
+        this.location = location;
+        this.farmer = farmer;
+        this.price = price;
+        this.quantity = quantity;
     }
 
-    // Buyer mode constructor
-    public CropModel(String cropId, String cropName, String status, String expectedYield, String startDate, String farmerId, String farmerName) {
-        this.cropId = cropId;
-        this.cropName = cropName;
-        this.status = status;
-        this.expectedYield = expectedYield;
-        this.startDate = startDate;
-        this.farmerId = farmerId;
-        this.farmerName = farmerName;
-    }
-
-    public String getCropId() { return cropId; }
-    public String getCropName() { return cropName; }
-    public String getStatus() { return status; }
-    public String getExpectedYield() { return expectedYield; }
-    public String getStartDate() { return startDate; }
-    public String getFarmerId() { return farmerId; }
-    public String getFarmerName() { return farmerName; }
+    public String getName() { return name; }
+    public String getCategory() { return category; }
+    public String getLocation() { return location; }
+    public String getFarmer() { return farmer; }
+    public String getPrice() { return price; }
+    public String getQuantity() { return quantity; }
 }
