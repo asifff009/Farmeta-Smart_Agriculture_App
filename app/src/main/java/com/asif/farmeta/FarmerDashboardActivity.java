@@ -1,7 +1,10 @@
 package com.asif.farmeta;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.*;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.*;
@@ -11,6 +14,7 @@ public class FarmerDashboardActivity extends AppCompatActivity {
 
     CropAdapter adapter;
     String selectedCategory = "All";
+    Button btnLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,20 +24,33 @@ public class FarmerDashboardActivity extends AppCompatActivity {
         RecyclerView rv = findViewById(R.id.rvCrops);
         EditText etSearch = findViewById(R.id.etSearch);
 
-        List<CropModel> list = new ArrayList<>();
+        // FIX: Initialize logout button correctly
+        btnLogout = findViewById(R.id.btnLogout);
 
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Go to LoginActivity and finish current dashboard
+                Intent logoutIntent = new Intent(FarmerDashboardActivity.this, LoginActivity.class);
+                startActivity(logoutIntent);
+                finish(); // prevent going back
+            }
+        });
+
+        // Sample crop data
+        List<CropModel> list = new ArrayList<>();
         list.add(new CropModel("Rice","Rice","Dhaka","John","150 Tk/kg","100 kg"));
         list.add(new CropModel("Tomato","Tomato","Khulna","Salam","80 Tk/kg","200 kg"));
         list.add(new CropModel("Potato","Potato","Rajshahi","Karim","60 Tk/kg","150 kg"));
         list.add(new CropModel("Onion","Onion","Sylhet","Akash","70 Tk/kg","12 kg"));
         list.add(new CropModel("Watermelon","Watermelon","Jamalpur","Kamal","70 Tk/piece","52 pieces"));
 
-
         adapter = new CropAdapter(this, list);
 
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(adapter);
 
+        // Category buttons
         findViewById(R.id.btnAll).setOnClickListener(v -> {
             selectedCategory = "All";
             adapter.filter(etSearch.getText().toString(), selectedCategory);
@@ -54,6 +71,7 @@ public class FarmerDashboardActivity extends AppCompatActivity {
             adapter.filter(etSearch.getText().toString(), selectedCategory);
         });
 
+        // Search text watcher
         etSearch.addTextChangedListener(new TextWatcher() {
             public void afterTextChanged(Editable s) {
                 adapter.filter(s.toString(), selectedCategory);
