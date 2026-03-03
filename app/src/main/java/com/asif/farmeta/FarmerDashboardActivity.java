@@ -14,7 +14,7 @@ public class FarmerDashboardActivity extends AppCompatActivity {
 
     CropAdapter adapter;
     String selectedCategory = "All";
-    Button btnLogout;
+    Button btnLogout, btnUploadCrop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,15 @@ public class FarmerDashboardActivity extends AppCompatActivity {
 
         // FIX: Initialize logout button correctly
         btnLogout = findViewById(R.id.btnLogout);
+        btnUploadCrop = findViewById(R.id.btnUploadCrop);
+
+        btnUploadCrop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FarmerDashboardActivity.this, ImageUpload.class);
+                startActivity(intent);
+            }
+        });
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +53,8 @@ public class FarmerDashboardActivity extends AppCompatActivity {
         list.add(new CropModel("Potato","Potato","Rajshahi","Karim","60 Tk/kg","150 kg"));
         list.add(new CropModel("Onion","Onion","Sylhet","Akash","70 Tk/kg","12 kg"));
         list.add(new CropModel("Watermelon","Watermelon","Jamalpur","Kamal","70 Tk/piece","52 pieces"));
+        list.add(new CropModel("Carrot","Carrot","Bogura","Amzad Hasan","45 Tk/kg","352 kg"));
+
 
         adapter = new CropAdapter(this, list);
 

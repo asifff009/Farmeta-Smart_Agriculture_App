@@ -15,7 +15,6 @@
         android:orientation="vertical"
         android:padding="24dp">
 
-        <!-- Header Row with App Name and Logout Button -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -31,7 +30,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-            <!-- Fixed Logout Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnLogout"
                 android:layout_width="48dp"
@@ -66,7 +64,6 @@
         android:orientation="vertical"
         android:padding="10dp">
 
-        <!-- SEARCH -->
         <EditText
             android:id="@+id/etSearch"
             android:layout_width="match_parent"
@@ -74,11 +71,10 @@
             android:hint="Search crops..."
             android:textColorHint="#6F6C6C"
             android:textColor="#6F6C6C"
-        android:background="@drawable/bg_search"
-        android:paddingStart="16dp"
-        android:layout_marginBottom="12dp"/>
+            android:background="@drawable/bg_search"
+            android:paddingStart="16dp"
+            android:layout_marginBottom="12dp"/>
 
-        <!-- CATEGORY -->
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -112,7 +108,6 @@
             </LinearLayout>
         </HorizontalScrollView>
 
-        <!-- LIST -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvCrops"
             android:layout_width="match_parent"
@@ -121,5 +116,24 @@
             android:paddingTop="12dp"/>
 
     </LinearLayout>
+
+    <!-- ✅ FLOATING UPLOAD CROPS BUTTON -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnUploadCrop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:text="Upload Crops"
+        android:layout_marginBottom="70dp"
+        android:layout_marginRight="15dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:backgroundTint="#FFD600"
+        app:cornerRadius="20dp"
+        app:elevation="10dp"
+        />
 
 </RelativeLayout>

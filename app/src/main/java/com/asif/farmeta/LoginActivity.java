@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     MaterialButton btnLogin;
     TextView btnSignup;
 
-    String LOGIN_URL = "http://192.168.1.103/farmeta_api/login.php";
+    String LOGIN_URL = "http://192.168.1.100/farmeta_api/login.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
