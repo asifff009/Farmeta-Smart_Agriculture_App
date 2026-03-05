@@ -31,11 +31,17 @@ public class CropAdapter extends RecyclerView.Adapter<CropAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position){
         CropModel model = list.get(position);
-        holder.name.setText(model.getName());
+        holder.name.setText(model.getCropName());
+        holder.seller.setText(model.getFullName());
+        holder.details.setText(
+                "Qty: " + model.getQuantity() + " | Price: " + model.getPrice() +
+                        "\nContact: " + model.getContact() +
+                        "\nAddress: " + model.getAddress()
+        );
         Glide.with(context)
                 .load("http://192.168.1.100/farmeta_api/uploads/" + model.getImage())
-                .placeholder(R.drawable.ic_launcher_background) // loading এ temporary
-                .error(R.drawable.ic_launcher_background)       // error হলে show করবে
+                .placeholder(R.drawable.ic_launcher_background)
+                .error(R.drawable.ic_launcher_background)
                 .into(holder.image);
     }
 
@@ -43,11 +49,13 @@ public class CropAdapter extends RecyclerView.Adapter<CropAdapter.ViewHolder> {
     public int getItemCount(){ return list.size(); }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView name;
+        TextView name, seller, details;
         ImageView image;
         public ViewHolder(@NonNull View itemView){
             super(itemView);
             name = itemView.findViewById(R.id.name);
+            seller = itemView.findViewById(R.id.seller);
+            details = itemView.findViewById(R.id.details);
             image = itemView.findViewById(R.id.image);
         }
     }

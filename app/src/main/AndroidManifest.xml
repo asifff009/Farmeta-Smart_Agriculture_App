@@ -30,7 +30,7 @@
             android:exported="false" />
         <!-- Launcher Activity -->
         <activity
-            android:name=".GetStartedPage"
+            android:name=".FarmerDashboardActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,7 +39,7 @@
             </intent-filter>
         </activity> <!-- Other Activities -->
         <activity
-            android:name=".FarmerDashboardActivity"
+            android:name=".GetStartedPage"
             android:exported="false" />
         <activity
             android:name=".SignupActivity"

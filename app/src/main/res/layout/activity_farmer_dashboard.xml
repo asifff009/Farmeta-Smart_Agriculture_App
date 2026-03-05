@@ -1,21 +1,356 @@
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:gravity="center"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnUploadCrop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Upload Crop"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Logout"
-        android:layout_marginTop="16dp"/>
-</LinearLayout>
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@drawable/header_bg"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Farmers Dashboard"
+                android:textColor="#ffffff"
+                android:textSize="22sp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btnUploadCrop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Upload"/>
+
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Logout"
+                android:layout_marginLeft="8dp"/>
+        </LinearLayout>
+
+        <!-- Image Slider Layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="182dp"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <HorizontalScrollView
+                android:id="@+id/imageSlider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/sliderContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <!-- Slider Images -->
+                    <ImageView
+                        android:layout_width="290dp"
+                        android:layout_height="130dp"
+                        android:layout_marginRight="12dp"
+                        android:background="@drawable/image_bg"
+                        android:clipToOutline="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/carrot" />
+                    <ImageView
+                        android:layout_width="290dp"
+                        android:layout_height="130dp"
+                        android:layout_marginRight="12dp"
+                        android:background="@drawable/image_bg"
+                        android:clipToOutline="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/carrot" />
+                    <ImageView
+                        android:layout_width="290dp"
+                        android:layout_height="130dp"
+                        android:layout_marginRight="12dp"
+                        android:background="@drawable/image_bg"
+                        android:clipToOutline="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/carrot" />
+                    <ImageView
+                        android:layout_width="290dp"
+                        android:layout_height="130dp"
+                        android:layout_marginRight="12dp"
+                        android:background="@drawable/image_bg"
+                        android:clipToOutline="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/carrot" />
+                    <ImageView
+                        android:layout_width="290dp"
+                        android:layout_height="130dp"
+                        android:background="@drawable/image_bg"
+                        android:clipToOutline="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/carrot" />
+
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+
+        <!-- Grid Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="8dp">
+
+            <!-- Text -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SEARCH AND CHECK"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#E0DDDD"
+                android:letterSpacing="0.05"
+                android:paddingEnd="8dp"/>
+
+            <!-- Stylish Line -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_weight="1"
+                android:background="#2DCF3C"
+                android:alpha="0.7"/>
+        </LinearLayout>
+
+
+        <!-- Fixed Grid: 4 Columns × 2 Rows -->
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:rowCount="2"
+            android:columnCount="4"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false">
+
+
+
+            <!-- Item 1 -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:layout_margin="4dp">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:clipToOutline="true"
+                    android:background="@drawable/image_bg"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/carrot" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Carrot"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:layout_marginTop="2dp"/>
+            </LinearLayout>
+
+            <!-- Item 2 -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:layout_margin="4dp">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:clipToOutline="true"
+                    android:background="@drawable/image_bg"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/tomato" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tomato"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:layout_marginTop="2dp"/>
+            </LinearLayout>
+
+            <!-- Item 3 -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:layout_margin="4dp">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:clipToOutline="true"
+                    android:background="@drawable/image_bg"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/potato" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Potato"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:layout_marginTop="2dp"/>
+            </LinearLayout>
+
+            <!-- Item 4 -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:layout_margin="4dp">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:clipToOutline="true"
+                    android:background="@drawable/image_bg"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/onion" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cabbage"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:layout_marginTop="2dp"/>
+            </LinearLayout>
+
+            <!-- Item 5 -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:layout_margin="4dp">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:clipToOutline="true"
+                    android:background="@drawable/image_bg"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/onion" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Onion"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:layout_marginTop="2dp"/>
+            </LinearLayout>
+
+            <!-- Item 6 -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:layout_margin="4dp">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:clipToOutline="true"
+                    android:background="@drawable/image_bg"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/tomato" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pepper"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:layout_marginTop="2dp"/>
+            </LinearLayout>
+
+            <!-- Item 7 -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:layout_margin="4dp">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:clipToOutline="true"
+                    android:background="@drawable/image_bg"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/carrot" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Garlic"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:layout_marginTop="2dp"/>
+            </LinearLayout>
+
+            <!-- Item 8 -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:layout_margin="4dp">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:clipToOutline="true"
+                    android:background="@drawable/image_bg"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/carrot" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lettuce"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:layout_marginTop="2dp"/>
+            </LinearLayout>
+
+        </GridLayout>
+
+        <!-- Grid Bottom Line -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="#FF9800"
+            android:alpha="0.7"/>
+
+    </LinearLayout>
+
+</ScrollView>

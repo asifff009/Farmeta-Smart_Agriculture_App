@@ -21,7 +21,7 @@ public class SignupActivity extends AppCompatActivity {
     Button btnSignup;
 
     // Emulator: 10.0.2.2, Real device: PC IP
-    String SIGNUP_URL = "hhttp://192.168.1.100/farmeta_api/signup.php";
+    String SIGNUP_URL = "http://192.168.1.100/farmeta_api/signup.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
