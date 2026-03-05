@@ -1,82 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginHorizontal="1dp"
-    android:layout_marginVertical="2dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="2dp"
-    app:cardBackgroundColor="#DAE7DA"
-    app:cardUseCompatPadding="false">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="horizontal" android:padding="10dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp">
+    <ImageView android:id="@+id/image"
+        android:layout_width="100dp" android:layout_height="100dp"
+        android:scaleType="centerCrop"/>
 
-        <!-- Image -->
-        <ImageView
-            android:id="@+id/cropImage"
-            android:layout_width="85dp"
-            android:layout_height="85dp"
-            android:scaleType="centerCrop"
-            android:background="@drawable/image_round_bg"
-            android:clipToOutline="true" />
-
-        <!-- Text Section -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:layout_marginStart="8dp">
-
-            <TextView
-                android:id="@+id/tvName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:textColor="#212121"/>
-
-            <TextView
-                android:id="@+id/tvLocation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="#4D4747"
-                android:layout_marginTop="1dp"/>
-
-            <TextView
-                android:id="@+id/tvFarmer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="#4D4747"
-                android:layout_marginTop="1dp"/>
-
-            <TextView
-                android:id="@+id/tvPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:textColor="#22B12D"
-                android:layout_marginTop="2dp"/>
-
-            <TextView
-                android:id="@+id/tvQuantity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="#4D4747"
-                android:layout_marginTop="1dp"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-</androidx.cardview.widget.CardView>
+    <TextView android:id="@+id/name"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Crop Name" android:textSize="18sp"
+        android:layout_marginStart="15dp" android:layout_gravity="center_vertical"/>
+</LinearLayout>

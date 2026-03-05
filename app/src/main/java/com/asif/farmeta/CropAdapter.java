@@ -1,94 +1,54 @@
 package com.asif.farmeta;
 
 import android.content.Context;
-import android.view.*;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import java.util.*;
+import com.bumptech.glide.Glide;
+import java.util.ArrayList;
 
 public class CropAdapter extends RecyclerView.Adapter<CropAdapter.ViewHolder> {
 
     Context context;
-    List<CropModel> cropList;
-    List<CropModel> fullList;
+    ArrayList<CropModel> list;
 
-    public CropAdapter(Context context, List<CropModel> list) {
+    public CropAdapter(Context context, ArrayList<CropModel> list){
         this.context = context;
-        this.cropList = new ArrayList<>(list);
-        this.fullList = new ArrayList<>(list);
+        this.list = list;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context)
-                .inflate(R.layout.item_crop, parent, false);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
+        View view = LayoutInflater.from(context).inflate(R.layout.item_crop,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
-        CropModel crop = cropList.get(position);
-
-        holder.tvName.setText(crop.getName());
-        holder.tvLocation.setText("Location: " + crop.getLocation());
-        holder.tvFarmer.setText("Farmer: " + crop.getFarmer());
-        holder.tvPrice.setText("Price: " + crop.getPrice());
-        holder.tvQuantity.setText("Qty: " + crop.getQuantity());
-
-        String imageName = crop.getName().toLowerCase().replace(" ", "");
-
-        int imageResId = context.getResources()
-                .getIdentifier(imageName, "drawable", context.getPackageName());
-
-        if (imageResId != 0) {
-            holder.cropImage.setImageResource(imageResId);
-        } else {
-            holder.cropImage.setImageResource(R.drawable.ic_launcher_foreground);
-        }
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position){
+        CropModel model = list.get(position);
+        holder.name.setText(model.getName());
+        Glide.with(context)
+                .load("http://192.168.1.100/farmeta_api/uploads/" + model.getImage())
+                .placeholder(R.drawable.ic_launcher_background) // loading এ temporary
+                .error(R.drawable.ic_launcher_background)       // error হলে show করবে
+                .into(holder.image);
     }
 
     @Override
-    public int getItemCount() {
-        return cropList.size();
-    }
+    public int getItemCount(){ return list.size(); }
 
-    public void filter(String text, String category) {
-        cropList.clear();
-
-        for (CropModel crop : fullList) {
-
-            boolean searchMatch = crop.getName().toLowerCase()
-                    .contains(text.toLowerCase());
-
-            boolean categoryMatch = category.equals("All")
-                    || crop.getCategory().equalsIgnoreCase(category);
-
-            if (searchMatch && categoryMatch) {
-                cropList.add(crop);
-            }
-        }
-
-        notifyDataSetChanged();
-    }
-
-    static class ViewHolder extends RecyclerView.ViewHolder {
-
-        ImageView cropImage;
-        TextView tvName, tvLocation, tvFarmer, tvPrice, tvQuantity;
-
-        public ViewHolder(@NonNull View itemView) {
+    public class ViewHolder extends RecyclerView.ViewHolder{
+        TextView name;
+        ImageView image;
+        public ViewHolder(@NonNull View itemView){
             super(itemView);
-
-            cropImage = itemView.findViewById(R.id.cropImage);
-            tvName = itemView.findViewById(R.id.tvName);
-            tvLocation = itemView.findViewById(R.id.tvLocation);
-            tvFarmer = itemView.findViewById(R.id.tvFarmer);
-            tvPrice = itemView.findViewById(R.id.tvPrice);
-            tvQuantity = itemView.findViewById(R.id.tvQuantity);
+            name = itemView.findViewById(R.id.name);
+            image = itemView.findViewById(R.id.image);
         }
     }
 }

@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:padding="20dp">
+
+    <ImageView android:id="@+id/imageView"
+        android:layout_width="200dp" android:layout_height="200dp"
+        android:scaleType="centerCrop" android:background="#ddd"/>
+
+    <EditText android:id="@+id/editName" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:hint="Crop Name"
+        android:layout_marginTop="10dp"/>
+
+    <Button android:id="@+id/btnCamera" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:text="Camera" android:layout_marginTop="10dp"/>
+
+    <Button android:id="@+id/btnGallery" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:text="Gallery" android:layout_marginTop="10dp"/>
+
+    <Button android:id="@+id/btnUpload" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:text="Upload" android:layout_marginTop="10dp"/>
+</LinearLayout>
