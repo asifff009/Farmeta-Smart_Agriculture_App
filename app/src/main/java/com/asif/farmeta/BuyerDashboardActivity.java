@@ -36,7 +36,7 @@ public class BuyerDashboardActivity extends AppCompatActivity {
     }
 
     private void loadCrops(){
-        String url = "http://192.168.1.102/farmeta_api/get_crops.php";
+        String url = "http://192.168.1.105/farmeta_api/get_crops.php";
 
         StringRequest request = new StringRequest(Request.Method.GET, url,
                 response -> {
