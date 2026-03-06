@@ -88,12 +88,12 @@
             android:textColor="#000000"
             android:layout_marginBottom="12dp"/>
 
-        <!-- First, Middle, Last Name horizontally -->
+        <!-- First + Last Name -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="3"
+            android:weightSum="2"
             android:layout_marginBottom="12dp">
 
             <EditText
@@ -109,19 +109,6 @@
                 android:layout_marginEnd="4dp"/>
 
             <EditText
-                android:id="@+id/middleName"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:hint="Middle Name"
-                android:padding="10dp"
-                android:background="@drawable/edittext_rounded_bg"
-                android:textColor="#1B1313"
-                android:textColorHint="#888888"
-                android:layout_marginEnd="4dp"
-                android:layout_marginStart="4dp"/>
-
-            <EditText
                 android:id="@+id/lastName"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
@@ -133,6 +120,8 @@
                 android:textColorHint="#888888"
                 android:layout_marginStart="4dp"/>
         </LinearLayout>
+
+        <!-- Crop Name -->
         <EditText
             android:id="@+id/editCropName"
             android:layout_width="match_parent"
@@ -145,6 +134,16 @@
             android:textSize="16sp"
             android:layout_marginBottom="12dp"/>
 
+        <!-- NEW TYPE SPINNER -->
+        <Spinner
+            android:id="@+id/spinnerType"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_rounded_bg"
+            android:layout_marginBottom="12dp"
+            android:padding="10dp"/>
+
+        <!-- Quantity + Price -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -178,9 +177,6 @@
                 android:layout_marginStart="4dp"/>
         </LinearLayout>
 
-
-
-
         <EditText
             android:id="@+id/editContact"
             android:layout_width="match_parent"
@@ -205,7 +201,6 @@
             android:textSize="16sp"
             android:layout_marginBottom="20dp"/>
 
-        <!-- Upload Button -->
         <Button
             android:id="@+id/btnUpload"
             android:layout_width="match_parent"

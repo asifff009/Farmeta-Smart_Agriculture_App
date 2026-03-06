@@ -1,12 +1,12 @@
 package com.asif.farmeta;
 
 public class CropModel {
-    private String firstName, middleName, lastName, cropName, quantity, price, contact, address, image;
+    private String firstName, lastName, cropName, type, quantity, price, contact, address, image;
 
-    public CropModel(String firstName, String middleName, String lastName, String cropName,
-                     String quantity, String price, String contact, String address, String image){
+    public CropModel(String firstName, String lastName, String cropName,
+                     String quantity, String price, String contact,
+                     String address, String image, String type){
         this.firstName = firstName;
-        this.middleName = middleName;
         this.lastName = lastName;
         this.cropName = cropName;
         this.quantity = quantity;
@@ -14,10 +14,12 @@ public class CropModel {
         this.contact = contact;
         this.address = address;
         this.image = image;
+        this.type = type;
     }
 
-    public String getFullName(){ return firstName + " " + middleName + " " + lastName; }
+    public String getFullName(){ return firstName + " " + lastName; }
     public String getCropName(){ return cropName; }
+    public String getType(){ return type; }
     public String getQuantity(){ return quantity; }
     public String getPrice(){ return price; }
     public String getContact(){ return contact; }

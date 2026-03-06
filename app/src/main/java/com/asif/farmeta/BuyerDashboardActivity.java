@@ -1,14 +1,18 @@
 package com.asif.farmeta;
 
 import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.android.volley.Request;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 public class BuyerDashboardActivity extends AppCompatActivity {
@@ -32,24 +36,25 @@ public class BuyerDashboardActivity extends AppCompatActivity {
     }
 
     private void loadCrops(){
-        String url = "http://192.168.1.100/farmeta_api/get_crops.php";
+        String url = "http://192.168.1.102/farmeta_api/get_crops.php";
 
         StringRequest request = new StringRequest(Request.Method.GET, url,
                 response -> {
                     try{
                         JSONArray array = new JSONArray(response);
+                        list.clear();
                         for(int i=0;i<array.length();i++){
                             JSONObject obj = array.getJSONObject(i);
                             CropModel model = new CropModel(
                                     obj.getString("first_name"),
-                                    obj.getString("middle_name"),
                                     obj.getString("last_name"),
                                     obj.getString("crop_name"),
                                     obj.getString("quantity"),
                                     obj.getString("price"),
                                     obj.getString("contact"),
                                     obj.getString("address"),
-                                    obj.getString("image")
+                                    obj.getString("image"),
+                                    obj.getString("type")
                             );
                             list.add(model);
                         }

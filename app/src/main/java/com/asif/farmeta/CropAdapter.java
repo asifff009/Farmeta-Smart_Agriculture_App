@@ -6,8 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
@@ -38,8 +40,10 @@ public class CropAdapter extends RecyclerView.Adapter<CropAdapter.ViewHolder> {
                         "\nContact: " + model.getContact() +
                         "\nAddress: " + model.getAddress()
         );
+        holder.type.setText(model.getType()); // type fix
+
         Glide.with(context)
-                .load("http://192.168.1.100/farmeta_api/uploads/" + model.getImage())
+                .load("http://192.168.1.102/farmeta_api/uploads/" + model.getImage())
                 .placeholder(R.drawable.ic_launcher_background)
                 .error(R.drawable.ic_launcher_background)
                 .into(holder.image);
@@ -49,13 +53,15 @@ public class CropAdapter extends RecyclerView.Adapter<CropAdapter.ViewHolder> {
     public int getItemCount(){ return list.size(); }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView name, seller, details;
+        TextView name, seller, details, type;
         ImageView image;
+
         public ViewHolder(@NonNull View itemView){
             super(itemView);
             name = itemView.findViewById(R.id.name);
             seller = itemView.findViewById(R.id.seller);
             details = itemView.findViewById(R.id.details);
+            type = itemView.findViewById(R.id.type);
             image = itemView.findViewById(R.id.image);
         }
     }
