@@ -33,8 +33,8 @@ public class CropGuideActivity extends AppCompatActivity {
     TextView tvFertilizerList;
 
     List<String> cropNames;
-    String GET_CROPS_URL = "http://10.0.2.2/farmeta_api/get_crops.php";
-    String GET_FERTILIZER_URL = "http://10.0.2.2/farmeta_api/get_crop_fertilizer.php";
+    String GET_CROPS_URL = "http://192.168.1.101/farmeta_api/get_crops.php";
+    String GET_FERTILIZER_URL = "http://192.168.1.101/farmeta_api/get_crop_fertilizer.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

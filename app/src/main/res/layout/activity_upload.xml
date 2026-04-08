@@ -2,7 +2,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f5f5f5"
-    android:padding="20dp">
+    android:padding="20dp"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -83,10 +84,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Fill Others"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="#000000"
-            android:layout_marginBottom="12dp"/>
+            android:textColor="#222222"
+            android:layout_marginBottom="16dp"/>
 
         <!-- First + Last Name -->
         <LinearLayout
@@ -94,54 +95,56 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="2"
-            android:layout_marginBottom="12dp">
+            android:layout_marginBottom="16dp">
 
             <EditText
                 android:id="@+id/firstName"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="56dp"
                 android:layout_weight="1"
-                android:hint="First Name"
-                android:padding="10dp"
-                android:background="@drawable/edittext_rounded_bg"
+                android:hint="Your First Name"
+                android:textSize="16sp"
                 android:textColor="#1B1313"
-                android:textColorHint="#888888"
-                android:layout_marginEnd="4dp"/>
+                android:textColorHint="#999999"
+                android:background="@drawable/edittext_rounded_bg"
+                android:padding="12dp"
+                android:layout_marginEnd="8dp"/>
 
             <EditText
                 android:id="@+id/lastName"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="56dp"
                 android:layout_weight="1"
-                android:hint="Last Name"
-                android:padding="10dp"
-                android:background="@drawable/edittext_rounded_bg"
+                android:hint="Your Last Name"
+                android:textSize="16sp"
                 android:textColor="#1B1313"
-                android:textColorHint="#888888"
-                android:layout_marginStart="4dp"/>
+                android:textColorHint="#999999"
+                android:background="@drawable/edittext_rounded_bg"
+                android:padding="12dp"
+                android:layout_marginStart="8dp"/>
         </LinearLayout>
 
         <!-- Crop Name -->
         <EditText
             android:id="@+id/editCropName"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="56dp"
             android:hint="Crop Name"
-            android:padding="12dp"
-            android:background="@drawable/edittext_rounded_bg"
-            android:textColor="#1B1313"
-            android:textColorHint="#888888"
             android:textSize="16sp"
-            android:layout_marginBottom="12dp"/>
+            android:textColor="#1B1313"
+            android:textColorHint="#999999"
+            android:background="@drawable/edittext_rounded_bg"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"/>
 
-        <!-- NEW TYPE SPINNER -->
+        <!-- Crop Type Spinner -->
         <Spinner
             android:id="@+id/spinnerType"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="56dp"
             android:background="@drawable/edittext_rounded_bg"
-            android:layout_marginBottom="12dp"
-            android:padding="10dp"/>
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"/>
 
         <!-- Quantity + Price -->
         <LinearLayout
@@ -149,67 +152,72 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="2"
-            android:layout_marginBottom="12dp">
+            android:layout_marginBottom="16dp">
 
             <EditText
                 android:id="@+id/editQuantity"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
+                android:layout_height="56dp"
                 android:layout_weight="1"
-                android:background="@drawable/edittext_rounded_bg"
                 android:hint="Quantity"
-                android:padding="10dp"
+                android:textSize="16sp"
                 android:textColor="#1B1313"
-                android:textColorHint="#888888" />
+                android:textColorHint="#999999"
+                android:background="@drawable/edittext_rounded_bg"
+                android:padding="12dp"
+                android:layout_marginEnd="8dp"/>
 
             <EditText
                 android:id="@+id/editPrice"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="56dp"
                 android:layout_weight="1"
                 android:hint="Price"
-                android:padding="10dp"
-                android:background="@drawable/edittext_rounded_bg"
+                android:textSize="16sp"
                 android:textColor="#1B1313"
-                android:textColorHint="#888888"
-                android:layout_marginStart="4dp"/>
+                android:textColorHint="#999999"
+                android:background="@drawable/edittext_rounded_bg"
+                android:padding="12dp"
+                android:layout_marginStart="8dp"/>
         </LinearLayout>
 
+        <!-- Contact Number -->
         <EditText
             android:id="@+id/editContact"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="56dp"
             android:hint="Contact Number"
-            android:padding="12dp"
-            android:background="@drawable/edittext_rounded_bg"
-            android:textColor="#1B1313"
-            android:textColorHint="#888888"
             android:textSize="16sp"
-            android:layout_marginBottom="12dp"/>
+            android:textColor="#1B1313"
+            android:textColorHint="#999999"
+            android:background="@drawable/edittext_rounded_bg"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"/>
 
+        <!-- Address -->
         <EditText
             android:id="@+id/editAddress"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="56dp"
             android:hint="Address"
-            android:padding="12dp"
-            android:background="@drawable/edittext_rounded_bg"
-            android:textColor="#1B1313"
-            android:textColorHint="#888888"
             android:textSize="16sp"
-            android:layout_marginBottom="20dp"/>
+            android:textColor="#1B1313"
+            android:textColorHint="#999999"
+            android:background="@drawable/edittext_rounded_bg"
+            android:padding="12dp"
+            android:layout_marginBottom="40dp"/> <!-- extra space above upload button -->
 
+        <!-- Upload Button -->
         <Button
             android:id="@+id/btnUpload"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="56dp"
             android:text="Upload Crop"
             android:textColor="#ffffff"
             android:textStyle="bold"
             android:backgroundTint="#FF5722"
-            android:elevation="4dp"/>
+            android:elevation="4dp"
+            android:layout_marginBottom="40dp"/>
 
     </LinearLayout>
 </ScrollView>

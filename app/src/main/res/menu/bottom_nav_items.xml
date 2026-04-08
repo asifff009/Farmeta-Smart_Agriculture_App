@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:title="HOME"
+        android:icon="@drawable/home_icon"
+        />
+
+    <item
+        android:id="@+id/market"
+        android:title="MARKET"
+        android:icon="@drawable/market_icon"
+        />
+
+
+    <item
+        android:id="@+id/notification"
+        android:title="NOTIFICATION"
+        android:icon="@drawable/notification_icon"
+        />
+
+    <item
+        android:id="@+id/profile"
+        android:title="PROFILE"
+        android:icon="@drawable/profile_icon"
+        />
+
+
+</menu>

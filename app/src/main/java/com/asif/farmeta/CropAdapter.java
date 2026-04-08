@@ -43,7 +43,7 @@ public class CropAdapter extends RecyclerView.Adapter<CropAdapter.ViewHolder> {
         holder.type.setText(model.getType()); // type fix
 
         Glide.with(context)
-                .load("http://192.168.1.105/farmeta_api/uploads/" + model.getImage())
+                .load("http://192.168.1.101/farmeta_api/uploads/" + model.getImage())
                 .placeholder(R.drawable.ic_launcher_background)
                 .error(R.drawable.ic_launcher_background)
                 .into(holder.image);

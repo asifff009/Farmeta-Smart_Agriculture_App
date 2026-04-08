@@ -21,7 +21,7 @@ public class SignupActivity extends AppCompatActivity {
     Button btnSignup;
 
     // Emulator: 10.0.2.2, Real device: PC IP
-    String SIGNUP_URL = "http://192.168.1.105/farmeta_api/signup.php";
+    String SIGNUP_URL = "http://192.168.1.101/farmeta_api/signup.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -33,6 +33,8 @@ public class SignupActivity extends AppCompatActivity {
         etPassword = findViewById(R.id.etPassword);
         rgRole = findViewById(R.id.rgRole);
         btnSignup = findViewById(R.id.btnSignup);
+
+
 
         btnSignup.setOnClickListener(v -> {
             String name = etName.getText().toString().trim();

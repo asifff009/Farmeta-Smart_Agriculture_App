@@ -38,7 +38,7 @@ public class UploadActivity extends AppCompatActivity {
     private static final int CAMERA_CODE = 101;
     private static final int GALLERY_CODE = 102;
 
-    String UPLOAD_URL = "http://192.168.1.105/farmeta_api/upload_crops.php";
+    String UPLOAD_URL = "http://192.168.1.101/farmeta_api/upload_crops.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
