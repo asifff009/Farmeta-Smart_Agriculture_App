@@ -612,6 +612,29 @@
             android:paddingTop="8dp"
             android:paddingBottom="8dp"/>
 
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="      "
+            />
+
+        <Button
+            android:id="@+id/btnBuyerGig"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="See Buyer GIG"
+            android:textAllCaps="false"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:letterSpacing="0.03"
+            android:background="@drawable/btn_buyer_gig_style"
+            android:elevation="4dp"
+            android:layout_margin="10dp"
+            android:padding="10dp"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -627,11 +650,7 @@
             android:layout_height="match_parent"
             android:text="      "
             />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="      "
-            />
+
 
     </LinearLayout>
 

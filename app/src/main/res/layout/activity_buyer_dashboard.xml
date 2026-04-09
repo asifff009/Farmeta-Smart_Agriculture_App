@@ -1,7 +1,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F0F4F8">
+    android:background="#F4F7FB">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,24 +11,50 @@
         <!-- Top Header -->
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="120dp">
+            android:layout_height="140dp"
+            android:elevation="6dp">
 
-            <!-- Green background with bottom curve -->
+            <!-- Gradient Background -->
             <View
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:background="@drawable/header_green_curve"/>
+                android:layout_height="140dp"
+                android:background="@drawable/header_gradient"/>
 
-            <!-- Title Text -->
+            <!-- Title -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Buyer Dashboard"
-                android:layout_marginTop="10dp"
                 android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:textStyle="bold" />
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"
+                android:layout_marginBottom="22dp"/>
+
+            <!-- Subtitle -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#E3F2FD"
+                android:textSize="13sp"
+                android:text="You're in Buyer Dashboard. Post your gig."
+                android:layout_marginTop="10dp"/>
+
+            <!-- ADD Button -->
+            <Button
+                android:id="@+id/buyerBtn"
+                android:layout_width="110dp"
+                android:layout_height="42dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="42dp"
+                android:text="ADD"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:backgroundTint="@color/_000000"
+                android:elevation="4dp"/>
+
         </FrameLayout>
 
         <!-- RecyclerView -->
@@ -36,6 +62,6 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"/>
+            android:padding="10dp"/>
     </LinearLayout>
 </ScrollView>

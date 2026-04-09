@@ -1,0 +1,130 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E8F5E9">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_marginTop="80dp"
+        android:layout_height="wrap_content">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/titleBuyerGig"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buyer GIG Info"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#1B5E20"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Name -->
+        <EditText
+            android:id="@+id/name"
+            android:hint="Name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edittext_rounded_bg"
+            android:padding="12dp"
+            android:textColor="#212121"
+            android:textColorHint="#757575"
+            android:textSize="16sp"/>
+
+        <!-- Email -->
+        <EditText
+            android:id="@+id/email"
+            android:hint="Email"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edittext_rounded_bg"
+            android:padding="12dp"
+            android:textColor="#212121"
+            android:textColorHint="#757575"
+            android:textSize="16sp"/>
+
+        <!-- Contact -->
+        <EditText
+            android:id="@+id/contact"
+            android:hint="Contact"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edittext_rounded_bg"
+            android:padding="12dp"
+            android:textColor="#212121"
+            android:textColorHint="#757575"
+            android:textSize="16sp"/>
+
+        <!-- Location -->
+        <EditText
+            android:id="@+id/location"
+            android:hint="Location"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edittext_rounded_bg"
+            android:padding="12dp"
+            android:textColor="#212121"
+            android:textColorHint="#757575"
+            android:textSize="16sp"/>
+
+        <!-- Crop -->
+        <EditText
+            android:id="@+id/crop"
+            android:hint="What to buy (Rice, Wheat)"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edittext_rounded_bg"
+            android:padding="12dp"
+            android:textColor="#212121"
+            android:textColorHint="#757575"
+            android:textSize="16sp"/>
+
+        <!-- Quantity -->
+        <EditText
+            android:id="@+id/quantity"
+            android:hint="Quantity"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edittext_rounded_bg"
+            android:padding="12dp"
+            android:textColor="#212121"
+            android:textColorHint="#757575"
+            android:textSize="16sp"/>
+
+        <!-- Expected Price -->
+        <EditText
+            android:id="@+id/price"
+            android:hint="Expected Price"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/edittext_rounded_bg"
+            android:padding="12dp"
+            android:textColor="#212121"
+            android:textColorHint="#757575"
+            android:textSize="16sp"/>
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/submit"
+            android:text="UPLOAD INFO"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:backgroundTint="#43A047"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:elevation="4dp"
+            android:stateListAnimator="@null"
+            android:layout_marginTop="8dp"/>
+
+    </LinearLayout>
+</ScrollView>

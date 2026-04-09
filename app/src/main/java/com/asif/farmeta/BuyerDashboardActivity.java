@@ -1,6 +1,9 @@
 package com.asif.farmeta;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,6 +23,7 @@ public class BuyerDashboardActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ArrayList<CropModel> list;
     CropAdapter adapter;
+    Button buyerBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -31,6 +35,16 @@ public class BuyerDashboardActivity extends AppCompatActivity {
         adapter = new CropAdapter(this, list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+
+        buyerBtn = findViewById(R.id.buyerBtn);
+
+        buyerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent buyerrrIntent = new Intent(BuyerDashboardActivity.this, BuyerPost.class);
+                startActivity(buyerrrIntent);
+            }
+        });
 
         loadCrops();
     }

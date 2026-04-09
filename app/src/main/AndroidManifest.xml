@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -25,12 +26,21 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".BuyerGigActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BuyerPost"
+            android:exported="false" />
+        <activity
             android:name=".FertilizerHistoryActivity"
             android:exported="false" />
         <activity
+            android:name=".FertilizerHistoryActivity"
+            android:exported="false"
+            tools:ignore="DuplicateActivity" />
+        <activity
             android:name=".FertilizerCalculatorActivity"
             android:exported="false" />
-
         <activity
             android:name=".MarketActivity"
             android:exported="false" />
@@ -46,10 +56,7 @@
         <activity
             android:name=".GetStartedPage"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize|stateHidden" />
-
-        <!-- Launcher Activity -->
-
+            android:windowSoftInputMode="adjustResize|stateHidden" /> <!-- Launcher Activity -->
         <activity
             android:name=".FarmerDashboardActivity"
             android:exported="true">
@@ -71,12 +78,6 @@
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
-
-        <activity
-            android:name=".FertilizerHistoryActivity"
-            android:exported="false"
-            tools:ignore="DuplicateActivity" />
-
         <activity
             android:name=".BuyerDashboardActivity"
             android:exported="false" />

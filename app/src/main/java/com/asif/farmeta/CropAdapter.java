@@ -1,9 +1,13 @@
 package com.asif.farmeta;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button; // ✅ added
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,6 +37,7 @@ public class CropAdapter extends RecyclerView.Adapter<CropAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position){
         CropModel model = list.get(position);
+
         holder.name.setText(model.getCropName());
         holder.seller.setText(model.getFullName());
         holder.details.setText(
@@ -40,13 +45,35 @@ public class CropAdapter extends RecyclerView.Adapter<CropAdapter.ViewHolder> {
                         "\nContact: " + model.getContact() +
                         "\nAddress: " + model.getAddress()
         );
-        holder.type.setText(model.getType()); // type fix
+        holder.type.setText(model.getType());
 
         Glide.with(context)
                 .load("http://192.168.1.101/farmeta_api/uploads/" + model.getImage())
                 .placeholder(R.drawable.ic_launcher_background)
                 .error(R.drawable.ic_launcher_background)
                 .into(holder.image);
+
+        // 🔥 SELECT BUTTON CLICK (ADDED)
+        holder.btnSelect.setOnClickListener(v -> {
+            showDialog(model.getContact());
+        });
+    }
+
+    // 🔥 Dialog + Call feature
+    private void showDialog(String phone){
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Contact Farmer");
+        builder.setMessage("Call this number?\n" + phone);
+
+        builder.setPositiveButton("Call", (dialog, which) -> {
+            Intent intent = new Intent(Intent.ACTION_DIAL);
+            intent.setData(Uri.parse("tel:" + phone));
+            context.startActivity(intent);
+        });
+
+        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
+
+        builder.show();
     }
 
     @Override
@@ -55,14 +82,17 @@ public class CropAdapter extends RecyclerView.Adapter<CropAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView name, seller, details, type;
         ImageView image;
+        Button btnSelect; // ✅ added
 
         public ViewHolder(@NonNull View itemView){
             super(itemView);
+
             name = itemView.findViewById(R.id.name);
             seller = itemView.findViewById(R.id.seller);
             details = itemView.findViewById(R.id.details);
             type = itemView.findViewById(R.id.type);
             image = itemView.findViewById(R.id.image);
+            btnSelect = itemView.findViewById(R.id.btnSelect); // ✅ added
         }
     }
 }
