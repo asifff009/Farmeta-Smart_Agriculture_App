@@ -25,6 +25,21 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".FertilizerHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FertilizerCalculatorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FertilizerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MarketActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DiseaseActivity"
+            android:exported="false" />
+        <activity
             android:name=".BottomNav"
             android:exported="false" />
         <activity

@@ -48,6 +48,20 @@
                 android:textColor="#ffffff"/>
         </LinearLayout>
 
+        <Button
+            android:id="@+id/btnFertilizer"
+            android:text="Fertilizer Calculator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"/>
+
+        <Button
+            android:id="@+id/btnFertilizerHistory"
+            android:text="Fertilizer History"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"/>
+
         <!-- Spinner for Districts -->
         <Spinner
             android:id="@+id/spinnerDistrict"
@@ -430,5 +444,7 @@
         </LinearLayout>
 
     </LinearLayout>
+
+
 
 </ScrollView>

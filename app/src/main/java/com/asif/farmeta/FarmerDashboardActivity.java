@@ -1,5 +1,6 @@
 package com.asif.farmeta;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -22,6 +23,8 @@ import org.json.JSONObject;
 public class FarmerDashboardActivity extends AppCompatActivity {
 
     Button btnUploadCrop, btnLogout;
+    Button btnFertilizer, btnFertilizerHistory;
+
     HorizontalScrollView scrollView;
     LinearLayout pesticide;
 
@@ -41,6 +44,8 @@ public class FarmerDashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_farmer_dashboard);
 
+        //detectDesease = findViewById(R.id.detectDesease);
+
         // Views
         btnUploadCrop = findViewById(R.id.btnUploadCrop);
         btnLogout = findViewById(R.id.btnLogout);
@@ -53,6 +58,28 @@ public class FarmerDashboardActivity extends AppCompatActivity {
         tvHumidity = findViewById(R.id.tvHumidity);
         tvWind = findViewById(R.id.tvWind);
         tvDesc = findViewById(R.id.tvDesc);
+
+        //detectDesease.setOnClickListener(new View.OnClickListener() {
+          //  @Override
+         //   public void onClick(View view) {
+            //    Intent detectIntent = new Intent(FarmerDashboardActivity.this, MarketActivity.class);
+              //  startActivity(detectIntent);
+          //  }
+     //   });
+
+        btnFertilizer = findViewById(R.id.btnFertilizer);
+        btnFertilizerHistory = findViewById(R.id.btnFertilizerHistory);
+
+        // 3️⃣ Click Listeners
+        btnFertilizer.setOnClickListener(v -> {
+            Intent intent = new Intent(FarmerDashboardActivity.this, FertilizerCalculatorActivity.class);
+            startActivity(intent);
+        });
+
+        btnFertilizerHistory.setOnClickListener(v -> {
+            Intent intent = new Intent(FarmerDashboardActivity.this, FertilizerHistoryActivity.class);
+            startActivity(intent);
+        });
 
         // Spinner - 64 Bangladesh districts
         String[] districts = {
