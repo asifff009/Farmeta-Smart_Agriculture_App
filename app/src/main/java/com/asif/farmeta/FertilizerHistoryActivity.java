@@ -11,9 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.Request;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.asif.farmeta.FertilizerAdapter;
-import com.asif.farmeta.FertilizerModel;
-import com.asif.farmeta.R;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -42,12 +39,14 @@ public class FertilizerHistoryActivity extends AppCompatActivity {
     }
 
     private void loadHistory() {
-        String url = "http://10.0.2.2/farmeta_api/get_history.php";
+        // Use correct IP or domain for real device
+        String url = "http://192.168.1.101/farmeta_api/get_history.php";
 
         StringRequest request = new StringRequest(Request.Method.GET, url,
                 response -> {
                     try {
                         Log.d("API_RESPONSE", response);
+
                         JSONObject obj = new JSONObject(response);
                         if (!obj.has("data")) return;
 
@@ -56,16 +55,24 @@ public class FertilizerHistoryActivity extends AppCompatActivity {
 
                         for (int i = 0; i < arr.length(); i++) {
                             JSONObject o = arr.getJSONObject(i);
+
+                            // Safely parse numbers
+                            double landSize = o.optDouble("land_size", 0);
+                            double nitrogen = o.optDouble("nitrogen", 0);
+                            double phosphorus = o.optDouble("phosphorus", 0);
+                            double potassium = o.optDouble("potassium", 0);
+
                             list.add(new FertilizerModel(
-                                    o.getString("crop"),
-                                    o.getDouble("land_size"),
-                                    o.getString("unit"),
-                                    o.getDouble("nitrogen"),
-                                    o.getDouble("phosphorus"),
-                                    o.getDouble("potassium"),
-                                    o.getString("created_at")
+                                    o.optString("crop","N/A"),
+                                    landSize,
+                                    o.optString("unit","N/A"),
+                                    nitrogen,
+                                    phosphorus,
+                                    potassium,
+                                    o.optString("created_at","N/A")
                             ));
                         }
+
                         adapter.notifyDataSetChanged();
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -77,6 +84,7 @@ public class FertilizerHistoryActivity extends AppCompatActivity {
                     Toast.makeText(this, "API error", Toast.LENGTH_SHORT).show();
                 });
 
+        // Use single RequestQueue
         Volley.newRequestQueue(this).add(request);
     }
 }

@@ -41,7 +41,7 @@ public class FertilizerAdapter extends RecyclerView.Adapter<FertilizerAdapter.Vi
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         FertilizerModel m = list.get(position);
-        holder.tvCrop.setText("🌱 Crop: " + m.crop);
+        holder.tvCrop.setText(" Crop: " + m.crop);
         holder.tvLand.setText("📏 Land: " + m.land + " " + m.unit);
         holder.tvNPK.setText("🧪 NPK → N:" + m.n + " P:" + m.p + " K:" + m.k);
         holder.tvDate.setText("📅 " + m.date);

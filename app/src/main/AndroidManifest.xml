@@ -30,9 +30,7 @@
         <activity
             android:name=".FertilizerCalculatorActivity"
             android:exported="false" />
-        <activity
-            android:name=".FertilizerActivity"
-            android:exported="false" />
+
         <activity
             android:name=".MarketActivity"
             android:exported="false" />
@@ -46,9 +44,12 @@
             android:name=".PesticidePage"
             android:exported="false" /> <!-- Fixed Upload Activity -->
         <activity
-            android:name=".UploadActivity"
+            android:name=".GetStartedPage"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize|stateHidden" /> <!-- Launcher Activity -->
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <!-- Launcher Activity -->
+
         <activity
             android:name=".FarmerDashboardActivity"
             android:exported="true">
@@ -59,7 +60,7 @@
             </intent-filter>
         </activity> <!-- Other Activities -->
         <activity
-            android:name=".GetStartedPage"
+            android:name=".UploadActivity"
             android:exported="false" />
         <activity
             android:name=".SignupActivity"
@@ -70,6 +71,12 @@
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".FertilizerHistoryActivity"
+            android:exported="false"
+            tools:ignore="DuplicateActivity" />
+
         <activity
             android:name=".BuyerDashboardActivity"
             android:exported="false" />

@@ -60,12 +60,12 @@ public class FarmerDashboardActivity extends AppCompatActivity {
         tvDesc = findViewById(R.id.tvDesc);
 
         //detectDesease.setOnClickListener(new View.OnClickListener() {
-          //  @Override
-         //   public void onClick(View view) {
-            //    Intent detectIntent = new Intent(FarmerDashboardActivity.this, MarketActivity.class);
-              //  startActivity(detectIntent);
-          //  }
-     //   });
+        //  @Override
+        //   public void onClick(View view) {
+        //    Intent detectIntent = new Intent(FarmerDashboardActivity.this, MarketActivity.class);
+        //  startActivity(detectIntent);
+        //  }
+        //   });
 
         btnFertilizer = findViewById(R.id.btnFertilizer);
         btnFertilizerHistory = findViewById(R.id.btnFertilizerHistory);

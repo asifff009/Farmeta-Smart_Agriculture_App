@@ -1,6 +1,8 @@
 package com.asif.farmeta;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,7 +28,7 @@ public class FertilizerCalculatorActivity extends AppCompatActivity {
     Spinner spinnerCrop, spinnerUnit;
     EditText etLand;
     TextView tvResult;
-    Button btnCalculate;
+    Button btnCalculate, btnBack;
 
     String[] crops = {"Rice","Wheat","Corn"};
     String[] units = {"Hectare","Acre","m2"};
@@ -41,6 +43,16 @@ public class FertilizerCalculatorActivity extends AppCompatActivity {
         etLand = findViewById(R.id.etLand);
         tvResult = findViewById(R.id.tvResult);
         btnCalculate = findViewById(R.id.btnCalculate);
+
+        btnBack = findViewById(R.id.btnBack);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent btnIntent = new Intent(FertilizerCalculatorActivity.this, FarmerDashboardActivity.class);
+                startActivity(btnIntent);
+            }
+        });
 
         spinnerCrop.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, crops));
         spinnerUnit.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, units));

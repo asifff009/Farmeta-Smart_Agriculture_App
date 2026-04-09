@@ -2,9 +2,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="12dp"
+    android:padding="16dp"
     android:layout_margin="8dp"
-    android:background="#E8F5E9">
+    android:background="@drawable/history_item_background"
+    android:elevation="4dp">
 
     <TextView
         android:id="@+id/tvCrop"
@@ -13,25 +14,27 @@
         android:textStyle="bold"
         android:textSize="18sp"
         android:textColor="#2E7D32"
-        android:layout_marginBottom="4dp"/>
+        android:layout_marginBottom="6dp"/>
 
     <TextView
         android:id="@+id/tvLand"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="2dp"/>
+        android:textColor="#1B5E20"
+        android:layout_marginBottom="4dp"/>
 
     <TextView
         android:id="@+id/tvNPK"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="2dp"/>
+        android:textColor="#43A047"
+        android:layout_marginBottom="4dp"/>
 
     <TextView
         android:id="@+id/tvDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="12sp"
-        android:textColor="#666"/>
-
+        android:textColor="#666"
+        android:gravity="start"/>
 </LinearLayout>
