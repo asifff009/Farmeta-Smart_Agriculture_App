@@ -1,5 +1,6 @@
 package com.asif.farmeta;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,8 +20,9 @@ import java.util.Map;
 public class BuyerPost extends AppCompatActivity {
 
     EditText name, email, contact, location, crop, quantity, price;
-    Button submit, update, buyerBtnBack;
+    Button submit, update, buyerBtnBack, LogoutBtn;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +38,15 @@ public class BuyerPost extends AppCompatActivity {
         submit = findViewById(R.id.submit);
         update = findViewById(R.id.update);
         buyerBtnBack = findViewById(R.id.buyerBtnBack);
+        LogoutBtn = findViewById(R.id.LogoutBtn);
+
+        LogoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent logBtttttn = new Intent(BuyerPost.this, BuyerDashboardActivity.class);
+                startActivity(logBtttttn);
+            }
+        });
 
         buyerBtnBack.setOnClickListener(new View.OnClickListener() {
             @Override

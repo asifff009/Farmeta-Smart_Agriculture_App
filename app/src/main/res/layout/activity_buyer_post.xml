@@ -156,5 +156,16 @@
                 android:stateListAnimator="@null"/>
         </LinearLayout>
 
+        <Button
+            android:id="@+id/LogoutBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Log Out"
+            />
+
+
+
+
+
     </LinearLayout>
 </ScrollView>

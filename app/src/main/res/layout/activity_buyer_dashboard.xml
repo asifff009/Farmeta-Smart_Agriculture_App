@@ -45,7 +45,7 @@
             <!-- ADD Button -->
             <Button
                 android:id="@+id/buyerBtn"
-                android:layout_width="110dp"
+                android:layout_width="wrap_content"
                 android:layout_height="42dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="42dp"
@@ -55,6 +55,8 @@
                 android:backgroundTint="@color/_000000"
                 android:elevation="4dp"/>
 
+
+
         </FrameLayout>
 
         <!-- RecyclerView -->
@@ -63,5 +65,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"/>
+
+
     </LinearLayout>
+
+
 </ScrollView>
