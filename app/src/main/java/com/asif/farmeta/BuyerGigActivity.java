@@ -2,11 +2,7 @@ package com.asif.farmeta;
 
 import android.os.Bundle;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -48,7 +44,6 @@ public class BuyerGigActivity extends AppCompatActivity {
                     try{
                         JSONArray arr = new JSONArray(response);
                         list.clear();
-
                         for(int i=0;i<arr.length();i++){
                             JSONObject o = arr.getJSONObject(i);
                             list.add(new BuyerModel(
@@ -60,9 +55,7 @@ public class BuyerGigActivity extends AppCompatActivity {
                                     o.getString("location")
                             ));
                         }
-
                         adapter.notifyDataSetChanged();
-
                     } catch(Exception e){ e.printStackTrace(); }
                 },
                 error -> error.printStackTrace()

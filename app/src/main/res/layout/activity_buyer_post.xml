@@ -3,12 +3,26 @@
     android:layout_height="match_parent"
     android:background="#E8F5E9">
 
+
     <LinearLayout
         android:orientation="vertical"
         android:padding="16dp"
         android:layout_width="match_parent"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="0dp"
         android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/buyerBtnBack"
+            android:text="Back"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:backgroundTint="#43A047"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:layout_marginTop="30dp"
+            android:elevation="4dp"
+
+            />
 
         <!-- Title -->
         <TextView
@@ -18,11 +32,12 @@
             android:text="Buyer GIG Info"
             android:textSize="24sp"
             android:textStyle="bold"
+            android:layout_marginTop="30dp"
             android:textColor="#1B5E20"
             android:gravity="center"
             android:layout_marginBottom="20dp"/>
 
-        <!-- Name -->
+        <!-- Buyer Fields -->
         <EditText
             android:id="@+id/name"
             android:hint="Name"
@@ -35,7 +50,6 @@
             android:textColorHint="#757575"
             android:textSize="16sp"/>
 
-        <!-- Email -->
         <EditText
             android:id="@+id/email"
             android:hint="Email"
@@ -48,7 +62,6 @@
             android:textColorHint="#757575"
             android:textSize="16sp"/>
 
-        <!-- Contact -->
         <EditText
             android:id="@+id/contact"
             android:hint="Contact"
@@ -61,7 +74,6 @@
             android:textColorHint="#757575"
             android:textSize="16sp"/>
 
-        <!-- Location -->
         <EditText
             android:id="@+id/location"
             android:hint="Location"
@@ -74,7 +86,6 @@
             android:textColorHint="#757575"
             android:textSize="16sp"/>
 
-        <!-- Crop -->
         <EditText
             android:id="@+id/crop"
             android:hint="What to buy (Rice, Wheat)"
@@ -87,7 +98,6 @@
             android:textColorHint="#757575"
             android:textSize="16sp"/>
 
-        <!-- Quantity -->
         <EditText
             android:id="@+id/quantity"
             android:hint="Quantity"
@@ -100,7 +110,6 @@
             android:textColorHint="#757575"
             android:textSize="16sp"/>
 
-        <!-- Expected Price -->
         <EditText
             android:id="@+id/price"
             android:hint="Expected Price"
@@ -113,18 +122,39 @@
             android:textColorHint="#757575"
             android:textSize="16sp"/>
 
-        <!-- Submit Button -->
-        <Button
-            android:id="@+id/submit"
-            android:text="UPLOAD INFO"
+        <!-- Buttons -->
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="#43A047"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:elevation="4dp"
-            android:stateListAnimator="@null"
-            android:layout_marginTop="8dp"/>
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:layout_marginTop="8dp">
+
+            <Button
+                android:id="@+id/submit"
+                android:text="UPLOAD INFO"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:backgroundTint="#43A047"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:elevation="4dp"
+                android:stateListAnimator="@null"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/update"
+                android:text="UPDATE INFO"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:backgroundTint="#F57C00"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:elevation="4dp"
+                android:stateListAnimator="@null"/>
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

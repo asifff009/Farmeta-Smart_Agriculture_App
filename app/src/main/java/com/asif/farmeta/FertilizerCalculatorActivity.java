@@ -10,11 +10,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.android.volley.Request;
 import com.android.volley.toolbox.StringRequest;
@@ -62,11 +58,17 @@ public class FertilizerCalculatorActivity extends AppCompatActivity {
 
     private void calculate(){
 
+        // Validate fields
+        if(etLand.getText().toString().trim().isEmpty()){
+            Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         String crop = spinnerCrop.getSelectedItem().toString();
         String unit = spinnerUnit.getSelectedItem().toString();
         double land = Double.parseDouble(etLand.getText().toString());
 
-        // Convert সব unit → hectare
+        // Convert all units → hectare
         if(unit.equals("Acre")) land *= 0.4047;
         if(unit.equals("m2")) land /= 10000;
 

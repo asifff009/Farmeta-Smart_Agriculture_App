@@ -1,41 +1,62 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="12dp"
-    android:layout_margin="8dp"
-    android:background="@drawable/item_bg"
-    android:elevation="4dp"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:padding="12dp"
+    android:background="@drawable/item_bg"
+    android:elevation="4dp">
 
-    <TextView
-        android:id="@+id/name"
+    <!-- Existing LinearLayout for info -->
+    <LinearLayout
+        android:id="@+id/infoLayout"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="24dp"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:layout_marginBottom="4dp"/>
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/btnSelect">
 
-    <TextView
-        android:id="@+id/crop"
-        android:layout_width="match_parent"
-        android:layout_height="22dp"
-        android:layout_marginBottom="2dp"/>
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp"/>
 
-    <TextView
-        android:id="@+id/quantity"
-        android:layout_width="match_parent"
-        android:layout_height="22dp"
-        android:layout_marginBottom="2dp"/>
+        <TextView
+            android:id="@+id/crop"
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:layout_marginBottom="2dp"/>
 
-    <TextView
-        android:id="@+id/price"
-        android:layout_width="match_parent"
-        android:layout_height="22dp"
-        android:layout_marginBottom="2dp"/>
+        <TextView
+            android:id="@+id/quantity"
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:layout_marginBottom="2dp"/>
 
-    <TextView
-        android:id="@+id/location"
-        android:layout_width="match_parent"
-        android:layout_height="22dp"/>
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:layout_marginBottom="2dp"/>
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="match_parent"
+            android:layout_height="22dp"/>
+    </LinearLayout>
+
+    <!-- Select Button on the right -->
+    <Button
+        android:id="@+id/btnSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select"
+        android:textSize="12sp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:backgroundTint="#43A047"
+        android:textColor="#FFFFFF"
+        android:elevation="2dp"/>
+</RelativeLayout>

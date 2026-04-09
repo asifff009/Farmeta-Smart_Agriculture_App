@@ -57,7 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="2dp"
             android:gravity="center"
             android:weightSum="2"
             android:padding="4dp">
@@ -98,7 +98,7 @@
                     android:id="@+id/btnFertilizerHistory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Fertilizer History"
+                    android:text="Fertilizer\nHistory"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp"
                     android:backgroundTint="@android:color/transparent"
@@ -113,7 +113,7 @@
             android:id="@+id/spinnerDistrict"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="3dp"
             android:padding="0dp"
             android:background="@drawable/spinner_bg"
             android:spinnerMode="dropdown"/>
@@ -125,8 +125,8 @@
             android:padding="16dp"
             android:background="@drawable/weather_box_bg"
             android:elevation="4dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="4dp"
             android:clipToOutline="true">
 
             <!-- Left: 2x2 Weather Icons -->
@@ -284,13 +284,17 @@
 
         </LinearLayout>
 
+
+
         <!-- Image Slider -->
         <HorizontalScrollView
             android:id="@+id/imageSlider"
             android:layout_width="match_parent"
-            android:layout_height="170dp"
+            android:layout_height="121dp"
+            android:padding="2dp"
             android:scrollbars="none"
-            android:padding="10dp">
+
+            >
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -301,39 +305,59 @@
                     android:layout_width="290dp"
                     android:layout_height="130dp"
                     android:layout_marginRight="6dp"
-                    android:scaleType="centerCrop"
                     android:background="@drawable/image_bg"
                     android:clipToOutline="true"
-                    android:src="@drawable/i5"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/i5" />
 
                 <ImageView
                     android:layout_width="290dp"
                     android:layout_height="130dp"
                     android:layout_marginRight="12dp"
-                    android:scaleType="centerCrop"
                     android:background="@drawable/image_bg"
                     android:clipToOutline="true"
-                    android:src="@drawable/i4"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/i4" />
 
                 <ImageView
                     android:layout_width="290dp"
                     android:layout_height="130dp"
                     android:layout_marginRight="12dp"
-                    android:scaleType="centerCrop"
                     android:background="@drawable/image_bg"
                     android:clipToOutline="true"
-                    android:src="@drawable/i3"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/i3" />
 
                 <ImageView
                     android:layout_width="290dp"
                     android:layout_height="130dp"
                     android:layout_marginRight="12dp"
-                    android:scaleType="centerCrop"
                     android:background="@drawable/image_bg"
                     android:clipToOutline="true"
-                    android:src="@drawable/i2"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/i2" />
             </LinearLayout>
         </HorizontalScrollView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="6dp"
+            android:backgroundTint="#2E7D32">
+
+            <Button
+                android:id="@+id/btnMarketPlace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Click to go Paykari Market Place"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="16dp"
+                android:stateListAnimator="@null"/>
+        </androidx.cardview.widget.CardView>
 
         <!-- Search Header -->
         <LinearLayout
@@ -344,7 +368,7 @@
             android:gravity="center_vertical">
 
             <TextView
-                android:text="SCHECK OTHERS "
+                android:text="CHECK OTHERS "
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="#0D47A1"
@@ -599,26 +623,6 @@
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnLogout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Logout"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#FF7043"
-            android:elevation="4dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"/>
-
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="      "
-            />
 
         <Button
             android:id="@+id/btnBuyerGig"
@@ -634,6 +638,20 @@
             android:elevation="4dp"
             android:layout_margin="10dp"
             android:padding="10dp"/>
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#FF7043"
+            android:elevation="4dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="4dp"
+            android:layout_gravity="center"
+            android:paddingBottom="8dp"/>
 
         <TextView
             android:layout_width="wrap_content"

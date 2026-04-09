@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="280dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/dialog_bg"
+    android:elevation="6dp">
+
+    <TextView
+        android:id="@+id/dialogTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose Action"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#1B5E20"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnCallDialog"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="Call"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#43A047"
+        android:textAllCaps="false"
+        android:layout_marginBottom="10dp"
+        android:elevation="4dp"/>
+
+    <Button
+        android:id="@+id/btnLocationDialog"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="Location"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#1E88E5"
+        android:textAllCaps="false"
+        android:elevation="4dp"/>
+</LinearLayout>
