@@ -59,7 +59,7 @@
             android:orientation="horizontal"
             android:layout_marginTop="2dp"
             android:gravity="center"
-            android:weightSum="2"
+            android:weightSum="3"
             android:padding="4dp">
 
             <!-- Fertilizer Calculator Card -->
@@ -99,6 +99,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Fertilizer\nHistory"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:backgroundTint="@android:color/transparent"
+                    android:padding="16dp"
+                    android:stateListAnimator="@null"/>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp"
+                android:backgroundTint="#2E7D32">
+
+                <Button
+                    android:id="@+id/aichat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="AI\nChat"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp"
                     android:backgroundTint="@android:color/transparent"

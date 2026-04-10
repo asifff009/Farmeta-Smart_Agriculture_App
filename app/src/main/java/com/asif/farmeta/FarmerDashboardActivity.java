@@ -22,7 +22,7 @@ import org.json.JSONObject;
 
 public class FarmerDashboardActivity extends AppCompatActivity {
 
-    Button btnUploadCrop, btnLogout, btnBuyerGig;
+    Button btnUploadCrop, btnLogout, btnBuyerGig,aichat;
     Button btnFertilizer, btnFertilizerHistory, btnMarketPlace;
 
     HorizontalScrollView scrollView;
@@ -60,6 +60,10 @@ public class FarmerDashboardActivity extends AppCompatActivity {
         tvWind = findViewById(R.id.tvWind);
         tvDesc = findViewById(R.id.tvDesc);
 
+        aichat = findViewById(R.id.aichat);
+
+
+
         //detectDesease.setOnClickListener(new View.OnClickListener() {
         //  @Override
         //   public void onClick(View view) {
@@ -76,6 +80,14 @@ public class FarmerDashboardActivity extends AppCompatActivity {
         btnMarketPlace.setOnClickListener(v -> {
             Intent intent = new Intent(FarmerDashboardActivity.this, MarketPlaceActivity.class);
             startActivity(intent);
+        });
+
+        aichat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent aiIntent = new Intent(FarmerDashboardActivity.this, AiChatWebViewActivity.class);
+                startActivity(aiIntent);
+            }
         });
 
         btnBuyerGig.setOnClickListener(new View.OnClickListener() {

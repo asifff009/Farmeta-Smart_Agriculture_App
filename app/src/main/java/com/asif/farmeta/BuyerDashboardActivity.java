@@ -38,15 +38,10 @@ public class BuyerDashboardActivity extends AppCompatActivity {
 
         buyerBtn = findViewById(R.id.buyerBtn);
 
-        buyerBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent postbyr = new Intent(BuyerDashboardActivity.this, PostBuyer.class);
-                startActivity(postbyr);
-            }
+        buyerBtn.setOnClickListener(view -> {
+            Intent postbyr = new Intent(BuyerDashboardActivity.this, PostBuyer.class);
+            startActivity(postbyr);
         });
-
-
 
         loadCrops();
     }
@@ -59,8 +54,10 @@ public class BuyerDashboardActivity extends AppCompatActivity {
                     try{
                         JSONArray array = new JSONArray(response);
                         list.clear();
+
                         for(int i=0;i<array.length();i++){
                             JSONObject obj = array.getJSONObject(i);
+
                             CropModel model = new CropModel(
                                     obj.getString("first_name"),
                                     obj.getString("last_name"),
@@ -72,10 +69,15 @@ public class BuyerDashboardActivity extends AppCompatActivity {
                                     obj.getString("image"),
                                     obj.getString("type")
                             );
+
                             list.add(model);
                         }
+
                         adapter.notifyDataSetChanged();
-                    } catch(Exception e){ e.printStackTrace(); }
+
+                    } catch(Exception e){
+                        e.printStackTrace();
+                    }
                 },
                 error -> error.printStackTrace()
         );

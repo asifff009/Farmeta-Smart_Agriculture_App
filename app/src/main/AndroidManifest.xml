@@ -5,6 +5,9 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -25,6 +28,11 @@
         android:theme="@style/Theme.Farmeta"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
+        <activity
+            android:name=".AiChatWebViewActivity"
+            android:exported="false" />
+
         <activity
             android:name=".GigSeeBuyer"
             android:exported="false" />
@@ -33,12 +41,6 @@
             android:exported="false" />
         <activity
             android:name=".MarketPlaceActivity"
-            android:exported="false" />
-        <activity
-            android:name=".BuyerGigActivity"
-            android:exported="false" />
-        <activity
-            android:name=".BuyerPost"
             android:exported="false" />
         <activity
             android:name=".FertilizerHistoryActivity"
@@ -67,7 +69,7 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize|stateHidden" /> <!-- Launcher Activity -->
         <activity
-            android:name=".GetStartedPage"
+            android:name=".FarmerDashboardActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -88,7 +90,7 @@
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".FarmerDashboardActivity"
+            android:name=".GetStartedPage"
             android:exported="false" />
         <activity
             android:name=".MarketPriceActivity"

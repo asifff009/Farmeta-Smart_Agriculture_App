@@ -7,7 +7,7 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button; // ✅ added
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -53,13 +53,11 @@ public class CropAdapter extends RecyclerView.Adapter<CropAdapter.ViewHolder> {
                 .error(R.drawable.ic_launcher_background)
                 .into(holder.image);
 
-        // 🔥 SELECT BUTTON CLICK (ADDED)
         holder.btnSelect.setOnClickListener(v -> {
             showDialog(model.getContact());
         });
     }
 
-    // 🔥 Dialog + Call feature
     private void showDialog(String phone){
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Contact Farmer");
@@ -82,7 +80,7 @@ public class CropAdapter extends RecyclerView.Adapter<CropAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView name, seller, details, type;
         ImageView image;
-        Button btnSelect; // ✅ added
+        Button btnSelect;
 
         public ViewHolder(@NonNull View itemView){
             super(itemView);
@@ -92,7 +90,7 @@ public class CropAdapter extends RecyclerView.Adapter<CropAdapter.ViewHolder> {
             details = itemView.findViewById(R.id.details);
             type = itemView.findViewById(R.id.type);
             image = itemView.findViewById(R.id.image);
-            btnSelect = itemView.findViewById(R.id.btnSelect); // ✅ added
+            btnSelect = itemView.findViewById(R.id.btnSelect);
         }
     }
 }

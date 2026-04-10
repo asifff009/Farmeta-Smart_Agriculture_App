@@ -41,7 +41,7 @@ public class UploadActivity extends AppCompatActivity {
     String UPLOAD_URL = "http://192.168.1.101/farmeta_api/upload_crops.php";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
 
@@ -60,7 +60,6 @@ public class UploadActivity extends AppCompatActivity {
 
         spinnerType = findViewById(R.id.spinnerType);
 
-        // Spinner values
         String[] types = {"Vegetable", "Fruit", "Grain", "Others"};
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
@@ -101,73 +100,56 @@ public class UploadActivity extends AppCompatActivity {
         });
     }
 
-    private void openCamera() {
+    private void openCamera(){
         Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(camera, CAMERA_CODE);
     }
 
-    private void openGallery() {
-        Intent gallery = new Intent(
-                Intent.ACTION_PICK,
-                MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-        );
+    private void openGallery(){
+        Intent gallery = new Intent(Intent.ACTION_PICK,
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(gallery, GALLERY_CODE);
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode == Activity.RESULT_OK && data != null) {
+        if(resultCode == Activity.RESULT_OK && data != null){
 
             try {
-
-                if (requestCode == GALLERY_CODE) {
-
+                if(requestCode == GALLERY_CODE){
                     Uri uri = data.getData();
-
-                    bitmap = MediaStore.Images.Media.getBitmap(
-                            getContentResolver(),
-                            uri
-                    );
-
-                } else if (requestCode == CAMERA_CODE && data.getExtras() != null) {
-
+                    bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                } else if(requestCode == CAMERA_CODE && data.getExtras() != null){
                     bitmap = (Bitmap) data.getExtras().get("data");
-
                 }
 
                 imageView.setImageBitmap(bitmap);
 
-            } catch (Exception e) {
-
+            } catch(Exception e){
                 e.printStackTrace();
-
-                Toast.makeText(this, "Image selection failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Image selection failed",Toast.LENGTH_SHORT).show();
             }
         }
     }
 
-    private boolean validateFields() {
-
-        if (firstName.getText().toString().trim().isEmpty()
+    private boolean validateFields(){
+        if(firstName.getText().toString().trim().isEmpty()
                 || lastName.getText().toString().trim().isEmpty()
                 || editCropName.getText().toString().trim().isEmpty()
                 || editQuantity.getText().toString().trim().isEmpty()
                 || editPrice.getText().toString().trim().isEmpty()
                 || editContact.getText().toString().trim().isEmpty()
-                || editAddress.getText().toString().trim().isEmpty()) {
+                || editAddress.getText().toString().trim().isEmpty()){
 
-            Toast.makeText(this, "Fill all fields", Toast.LENGTH_SHORT).show();
-
+            Toast.makeText(this,"Fill all fields",Toast.LENGTH_SHORT).show();
             return false;
         }
-
         return true;
     }
 
-    private void uploadImage() {
+    private void uploadImage(){
 
         String fName = firstName.getText().toString().trim();
         String lName = lastName.getText().toString().trim();
@@ -179,34 +161,19 @@ public class UploadActivity extends AppCompatActivity {
         String type = spinnerType.getSelectedItem().toString();
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-
         bitmap.compress(Bitmap.CompressFormat.JPEG, 50, baos);
 
-        String image64 = Base64.encodeToString(
-                baos.toByteArray(),
-                Base64.DEFAULT
-        );
+        String image64 = Base64.encodeToString(baos.toByteArray(), Base64.DEFAULT);
 
         StringRequest request = new StringRequest(
                 Request.Method.POST,
                 UPLOAD_URL,
-
-                response -> {
-
-                    Toast.makeText(this, "Upload Success", Toast.LENGTH_SHORT).show();
-
-                },
-
-                error -> {
-
-                    Toast.makeText(this, "Upload Failed : " + error.toString(), Toast.LENGTH_LONG).show();
-
-                }) {
-
+                response -> Toast.makeText(this,"Upload Success",Toast.LENGTH_SHORT).show(),
+                error -> Toast.makeText(this,"Upload Failed : "+error,Toast.LENGTH_LONG).show()
+        ){
             @Override
-            protected Map<String, String> getParams() {
-
-                Map<String, String> map = new HashMap<>();
+            protected Map<String,String> getParams(){
+                Map<String,String> map = new HashMap<>();
 
                 map.put("first_name", fName);
                 map.put("last_name", lName);
