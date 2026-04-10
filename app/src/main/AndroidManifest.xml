@@ -26,6 +26,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".GigSeeBuyer"
+            android:exported="false" />
+        <activity
+            android:name=".PostBuyer"
+            android:exported="false" />
+        <activity
             android:name=".MarketPlaceActivity"
             android:exported="false" />
         <activity

@@ -41,10 +41,12 @@ public class BuyerDashboardActivity extends AppCompatActivity {
         buyerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent buyerrrIntent = new Intent(BuyerDashboardActivity.this, BuyerPost.class);
-                startActivity(buyerrrIntent);
+                Intent postbyr = new Intent(BuyerDashboardActivity.this, PostBuyer.class);
+                startActivity(postbyr);
             }
         });
+
+
 
         loadCrops();
     }

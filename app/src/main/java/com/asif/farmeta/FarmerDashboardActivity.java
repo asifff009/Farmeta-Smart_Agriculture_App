@@ -81,10 +81,12 @@ public class FarmerDashboardActivity extends AppCompatActivity {
         btnBuyerGig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent gigIntent = new Intent(FarmerDashboardActivity.this, BuyerGigActivity.class);
-                startActivity(gigIntent);
+                Intent gigsee = new Intent(FarmerDashboardActivity.this,GigSeeBuyer.class);
+                startActivity(gigsee);
             }
         });
+
+
 
         // 3️⃣ Click Listeners
         btnFertilizer.setOnClickListener(v -> {
