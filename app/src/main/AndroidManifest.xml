@@ -69,7 +69,7 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize|stateHidden" /> <!-- Launcher Activity -->
         <activity
-            android:name=".FarmerDashboardActivity"
+            android:name=".GetStartedPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -90,7 +90,7 @@
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".GetStartedPage"
+            android:name=".FarmerDashboardActivity"
             android:exported="false" />
         <activity
             android:name=".MarketPriceActivity"
