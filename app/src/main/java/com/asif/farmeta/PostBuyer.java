@@ -34,7 +34,7 @@ public class PostBuyer extends AppCompatActivity {
         price = findViewById(R.id.price);
 
         uploadBtn = findViewById(R.id.uploadBtn);
-        updateBtn = findViewById(R.id.updateBtn);
+       // updateBtn = findViewById(R.id.updateBtn);
         buyerLogout = findViewById(R.id.buyerLogout);
 
         buyerLogout.setOnClickListener(v -> {
@@ -48,7 +48,7 @@ public class PostBuyer extends AppCompatActivity {
             }
         });
 
-        updateBtn.setOnClickListener(v -> showUpdateDialog());
+       // updateBtn.setOnClickListener(v -> showUpdateDialog());
     }
 
     // ✅ VALIDATION

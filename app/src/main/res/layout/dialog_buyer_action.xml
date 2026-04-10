@@ -1,41 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="280dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@drawable/dialog_bg"
-    android:elevation="6dp">
+    android:background="#FFFFFF">
 
     <TextView
-        android:id="@+id/dialogTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Choose Action"
-        android:textSize="18sp"
+        android:text="BUYER ACTION"
         android:textStyle="bold"
-        android:textColor="#1B5E20"
+        android:textSize="18sp"
         android:gravity="center"
-        android:layout_marginBottom="16dp"/>
+        android:padding="12dp"
+        android:background="#1B5E20"
+        android:textColor="#FFFFFF"/>
 
     <Button
-        android:id="@+id/btnCallDialog"
+        android:id="@+id/callBtn"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:text="Call"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="#43A047"
-        android:textAllCaps="false"
-        android:layout_marginBottom="10dp"
-        android:elevation="4dp"/>
+        android:layout_height="wrap_content"
+        android:text="CALL NOW"
+        android:layout_marginTop="14dp"
+        android:backgroundTint="#4CAF50"
+        android:textColor="#FFFFFF"/>
 
     <Button
-        android:id="@+id/btnLocationDialog"
+        android:id="@+id/locBtn"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:text="Location"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="#1E88E5"
-        android:textAllCaps="false"
-        android:elevation="4dp"/>
+        android:layout_height="wrap_content"
+        android:text="VIEW LOCATION"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#2196F3"
+        android:textColor="#FFFFFF"/>
+
 </LinearLayout>

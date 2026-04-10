@@ -1,5 +1,6 @@
 package com.asif.farmeta;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -10,7 +11,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -20,33 +20,30 @@ public class BuyerPostAdapter extends RecyclerView.Adapter<BuyerPostAdapter.View
     Context context;
     ArrayList<BuyerPostModel> list;
 
-    public BuyerPostAdapter(Context context, ArrayList<BuyerPostModel> list) {
+    public BuyerPostAdapter(Context context, ArrayList<BuyerPostModel> list){
         this.context = context;
         this.list = list;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView name, email, contact, location, crop, quantity, price;
+        TextView name, contact, location, crops;
         Button btnSee;
 
-        public ViewHolder(View itemView) {
+        public ViewHolder(View itemView){
             super(itemView);
 
             name = itemView.findViewById(R.id.name);
-            email = itemView.findViewById(R.id.email);
             contact = itemView.findViewById(R.id.contact);
             location = itemView.findViewById(R.id.location);
-            crop = itemView.findViewById(R.id.crop);
-            quantity = itemView.findViewById(R.id.quantity);
-            price = itemView.findViewById(R.id.price);
+            crops = itemView.findViewById(R.id.crops);
             btnSee = itemView.findViewById(R.id.btnSee);
         }
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
 
         View view = LayoutInflater.from(context)
                 .inflate(R.layout.item_buyer_post, parent, false);
@@ -55,26 +52,39 @@ public class BuyerPostAdapter extends RecyclerView.Adapter<BuyerPostAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position){
 
-        BuyerPostModel m = list.get(position);
+        BuyerPostModel model = list.get(position);
 
-        holder.name.setText("Name: " + m.getName());
-        holder.email.setText("Email: " + m.getEmail());
-        holder.contact.setText("Contact: " + m.getContact());
-        holder.location.setText("Location: " + m.getLocation());
-        holder.crop.setText("Crop: " + m.getCrop());
-        holder.quantity.setText("Quantity: " + m.getQuantity());
-        holder.price.setText("Price: " + m.getPrice());
+        holder.name.setText(model.name);
+        holder.contact.setText(model.contact);
+        holder.location.setText(model.location);
 
-        holder.btnSee.setOnClickListener(v -> showDialog(m));
+        StringBuilder sb = new StringBuilder();
+
+        for(BuyerPostModel.CropItem item : model.items){
+            sb.append("Crop: ")
+                    .append(item.crop)
+                    .append(" | Qty: ")
+                    .append(item.quantity)
+                    .append(" | Price: ")
+                    .append(item.price)
+                    .append("\n");
+        }
+
+        holder.crops.setText(sb.toString());
+
+        // ⭐ SEE BUTTON CLICK
+        holder.btnSee.setOnClickListener(v -> showDialog(model));
     }
 
-    private void showDialog(BuyerPostModel m) {
+    private void showDialog(BuyerPostModel model){
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
-        View view = LayoutInflater.from(context).inflate(R.layout.dialog_buyer, null);
+        View view = LayoutInflater.from(context)
+                .inflate(R.layout.dialog_buyer_action, null);
+
         builder.setView(view);
 
         AlertDialog dialog = builder.create();
@@ -83,17 +93,19 @@ public class BuyerPostAdapter extends RecyclerView.Adapter<BuyerPostAdapter.View
         Button callBtn = view.findViewById(R.id.callBtn);
         Button locBtn = view.findViewById(R.id.locBtn);
 
+        // 📞 CALL
         callBtn.setOnClickListener(v -> {
 
             Intent intent = new Intent(Intent.ACTION_DIAL);
-            intent.setData(Uri.parse("tel:" + m.getContact()));
+            intent.setData(Uri.parse("tel:" + model.contact));
             context.startActivity(intent);
         });
 
+        // 📍 LOCATION
         locBtn.setOnClickListener(v -> {
 
             String uri = "https://www.google.com/maps/search/?api=1&query="
-                    + Uri.encode(m.getLocation());
+                    + Uri.encode(model.location);
 
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
             context.startActivity(intent);
@@ -101,7 +113,7 @@ public class BuyerPostAdapter extends RecyclerView.Adapter<BuyerPostAdapter.View
     }
 
     @Override
-    public int getItemCount() {
+    public int getItemCount(){
         return list.size();
     }
 }

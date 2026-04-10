@@ -63,11 +63,11 @@
             android:name=".PesticidePage"
             android:exported="false" /> <!-- Fixed Upload Activity -->
         <activity
-            android:name=".GetStartedPage"
+            android:name=".BuyerDashboardActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize|stateHidden" /> <!-- Launcher Activity -->
         <activity
-            android:name=".BuyerDashboardActivity"
+            android:name=".GetStartedPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -4,18 +4,19 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="14dp"
-    android:background="#F5F7FA">
+    android:background="#EEF3F1">
 
     <!-- CARD -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="14dp"
+        android:padding="16dp"
         android:background="#FFFFFF"
-        android:elevation="6dp"
+        android:elevation="8dp"
         android:layout_margin="8dp">
 
+        <!-- HEADER -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,45 +25,46 @@
             android:textSize="18sp"
             android:gravity="center"
             android:textColor="#FFFFFF"
-            android:background="#2E7D32"
-            android:padding="10dp"
-            android:layout_marginBottom="12dp"/>
+            android:background="#1B5E20"
+            android:padding="12dp"
+            android:layout_marginBottom="14dp"/>
 
+        <!-- NAME -->
         <TextView
             android:id="@+id/name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="16sp"
-            android:textColor="#000000"/>
+            android:textColor="#1A1A1A"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"/>
 
-        <TextView android:id="@+id/email"
-            android:layout_width="match_parent"
+        <!-- CONTACT -->
+        <TextView
+            android:id="@+id/contact"
+            android:textColor="#424242"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <TextView android:id="@+id/contact"
-            android:layout_width="match_parent"
+        <!-- LOCATION -->
+        <TextView
+            android:id="@+id/location"
+            android:textColor="#424242"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <TextView android:id="@+id/location"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <TextView android:id="@+id/crop"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <TextView android:id="@+id/quantity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <TextView android:id="@+id/price"
+        <!-- CROPS -->
+        <TextView
+            android:id="@+id/crops"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#1E88E5"
-            android:textStyle="bold"/>
+            android:text="Crops"
+            android:textColor="#2E7D32"
+            android:textStyle="bold"
+            android:paddingTop="10dp"
+            android:textSize="14sp"/>
 
-        <!-- SEE BUTTON -->
+        <!-- SEE BUTTON (NEW) -->
         <Button
             android:id="@+id/btnSee"
             android:layout_width="match_parent"
